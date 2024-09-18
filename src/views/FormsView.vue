@@ -64,6 +64,7 @@ interface FormData {
   phone_number: string,
   address: string
 }
+
 const formData = ref<FormData>({
   name: '',
   email: '',
@@ -113,6 +114,7 @@ const resetForm = () => {
 
   onSetStep(0)
 }
+
 const onSubmit = async () => {
   const validate = await v$.value.$validate()
 
