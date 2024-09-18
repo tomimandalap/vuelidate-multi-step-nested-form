@@ -20,7 +20,7 @@ import type { PropType } from 'vue';
       default: 'Placeholder'
     },
     error: {
-      type: String,
+      type: [Object, String],
       default: ''
     }
   })
