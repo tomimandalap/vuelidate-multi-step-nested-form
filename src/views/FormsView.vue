@@ -124,7 +124,8 @@ const onSubmit = async () => {
     return await gotoToFirstStepWithErrors()
   }
 
-  console.log('ini', formData.value);
+  alert('Submit success')
+  resetForm()
 }
 </script>
 
@@ -149,5 +150,7 @@ const onSubmit = async () => {
   padding: 1rem;
   width: 100%;
   max-width: 500px;
+  height: 400px;
+  overflow-y: auto;
 }
 </style>
