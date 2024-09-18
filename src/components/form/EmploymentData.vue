@@ -19,7 +19,7 @@ const v$ = computed(() => props.state)
     v-model="v$.experience.$model" 
     label="Experience" 
     name="experience" 
-    placeholder="Ex: Elon Musk" 
+    placeholder="Your experience" 
     :error="v$.experience.$errors[0]?.$message"
   />
 </template>
