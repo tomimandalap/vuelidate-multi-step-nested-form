@@ -44,9 +44,8 @@ export function useSteps() {
     return onSetStep(currentIndex.value - 1);
   }
 
-  const gotoNextStep = async (): Promise<void> => {
-    onSetStep(currentIndex.value + 1);
-    return
+  const gotoNextStep = (): void => {
+    return onSetStep(currentIndex.value + 1);
   }
 
   const componentForm = computed(() => {
