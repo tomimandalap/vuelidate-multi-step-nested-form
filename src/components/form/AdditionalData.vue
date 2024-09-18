@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BaseInput from "@/components/BaseInput.vue";
+import FormAdditionalNested from '@/components/FormAdditionalNested.vue'
 
 import type { BaseValidation } from "@vuelidate/core"
 import { computed, type PropType } from "vue";
@@ -30,4 +31,6 @@ const v$ = computed(() => props.state)
     placeholder="Ex: Soekarno-Hatta Street No. 89 Block B" 
     :error="v$.address.$errors[0]?.$message"
   />
+
+  <FormAdditionalNested />
 </template>

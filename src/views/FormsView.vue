@@ -10,18 +10,22 @@
       <form  orm @submit.prevent="onSubmit"> 
         <component :is="componentForm" :state="v$" />
 
-        <div style="display: flex; align-items: center; gap: 0 8px;">
-          <template v-if="showPrevStep">
-            <button type="button" @click="gotoPrevStep">Prev</button>
-          </template>
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 0 8px;">
+          <button type="button" @click="resetForm">Reset</button>
 
-          <template v-if="showNextStep">
-            <button type="button" @click="gotoNextStep">Next</button>
-          </template>
+          <div style="display: flex; align-items: center; gap: 0 8px;">
+            <template v-if="showPrevStep">
+              <button type="button" @click="gotoPrevStep">Prev</button>
+            </template>
 
-          <template v-if="showSubmit">
-            <button type="submit">Submit</button>
-          </template>
+            <template v-if="showNextStep">
+              <button type="button" @click="gotoNextStep">Next</button>
+            </template>
+
+            <template v-if="showSubmit">
+              <button type="submit">Submit</button>
+            </template>
+          </div>
         </div>
       </form>
     </fieldset>
@@ -78,7 +82,7 @@ const rules = computed(() => {
     $validationGroups: {
       formPersonalData: ['name', 'email'],
       formEmploymentData: ['experience'],
-      formAdditionalData: ['phone_number', 'address']
+      formAdditionalData: ['phone_number', 'address', 'FormAdditionalNested']
     }
   }
 })
@@ -97,6 +101,18 @@ watch(
   { immediate: true, deep: true }
 )
 
+const resetForm = () => {
+  formData.value = {
+    name: '',
+    email: '',
+    experience: '',
+    phone_number: '',
+    address: ''
+  }
+  v$.value.$reset()
+
+  onSetStep(0)
+}
 const onSubmit = async () => {
   const validate = await v$.value.$validate()
 
