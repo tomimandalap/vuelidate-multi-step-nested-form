@@ -48,11 +48,13 @@ nav.steps-nav {
   color: teal;
   border-radius: 4px;
   padding: 4px 8px;
+  cursor: pointer;
 }
 
 .steps-nav__item[data-active-step="true"] {
   background-color: teal;
   color: white;
+  cursor: not-allowed;
 }
 .steps-nav__item[data-error-step="true"] {
   background-color: rgb(240, 204, 204);
